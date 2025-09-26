@@ -43,8 +43,8 @@ class AuthController extends Controller
         }
 
         return back()
-            ->withErrors(['login' => 'Credentials not recognized.'])
-            ->onlyInput('login');
+            ->withErrors(['/login' => 'Credentials not recognized.'])
+            ->onlyInput('/login');
     }
 
     // Logout

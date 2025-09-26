@@ -51,7 +51,7 @@ class UserSeeder extends Seeder
         );
 
         // (Optional) bulk fakes
-        // \App\Models\Users::factory()->count(5)->create();
+        // \App\Models\Usersle::factory()->count(5)->create();
     }
 }
 
