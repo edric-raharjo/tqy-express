@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 use App\Http\Middleware\RoleMiddleware;
 
 Route::get('/', function () {
@@ -25,10 +26,9 @@ Route::middleware('auth')->group(function () {
     Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
 });
 
-
-Route::middleware(['auth', 'role'.'admin'])->prefix('admin')->name('admin.')->group(function () {
+Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', fn () => view('dashboard.admin'))->name('dashboard');
-    Route::resource('/users', Admin\UserController::class);
+    Route::resource('/users', UserController::class);
     // names: admin.users.index, admin.users.create, admin.users.store, etc.
 });
 
